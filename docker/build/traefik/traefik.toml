@@ -1,0 +1,14 @@
+debug = true
+accessLogsFile = "/log/access.log"
+logLevel = "DEBUG"
+
+defaultEntryPoints = ["http", "https"]
+
+[web]
+address = ":8080"
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+  [entryPoints.https]
+  address = ":443"
