@@ -61,7 +61,7 @@ class PgApp {
     }
 
     checkJsonValidity(req,res,next){
-        console.log("check json " , req);
+        // console.log("check json " , req);
         var contype = req.headers['content-type'];
         console.log("con type ", contype);
         if (typeof contype != 'undefined')

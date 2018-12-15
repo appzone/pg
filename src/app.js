@@ -4,6 +4,7 @@
 import PgCommon from './common'
 import apiRouter from './routers/api-router'
 import config from './env'
+PgCommon.init()
 
 const PgApp = new PgCommon.lib.PgApp(config.appPort)
 

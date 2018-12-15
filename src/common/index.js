@@ -1,11 +1,14 @@
 import PgApp from './pgapp'
+// import { connectDb } from '../model/dbConn'
 
-const common = {
+const PgCommon = {
     lib: {
         PgApp,
     },
     init: () => {
+        console.log("init");
+        // connectDb()
     },
 }
 
-module.exports = common
+module.exports = PgCommon
