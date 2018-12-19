@@ -14,6 +14,11 @@ class Response {
         
     }
 
+    static setModule = (subName, statusCode) => {
+        let data = Code[subName][statusCode]
+        return data
+    }
+
     static setJson = (subName, statusCode,reqId ) => {
         let data = {
             statusCode,

@@ -4,9 +4,12 @@
   "main": "app.js",
   "license": "MIT",
   "dependencies": {
+    "amqplib": "^0.5.3",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
+    "decimal.js": "^10.0.2",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.0",
     "morgan": "^1.9.1",
     "pg": "^7.7.1",
@@ -27,6 +30,7 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/nodemon src/app.js --exec babel-node",
+    "consumer": "./node_modules/.bin/nodemon src/consumer.js --exec babel-node",
     "lint": "./node_modules/.bin/eslint src",
     "build": "./node_modules/.bin/babel src -d dist",
     "serve": "node dist/app.js",

@@ -6,7 +6,6 @@ const PgCommon = {
         PgApp,
     },
     init: () => {
-        console.log("init");
         // connectDb()
     },
 }

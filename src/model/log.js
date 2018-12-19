@@ -1,30 +1,30 @@
-const Mongoose = require('mongoose');
-const Schema = Mongoose.Schema;
+import Mongoose from 'mongoose'
 
-var schema = new Schema({
-    logData : String,
-    reqId   : String,
-    createdAt    : { type : Date, default : Date.now },
-    updatedAt    : { type : Date, default : Date.now },
-    creator      : { type : String, default : 'System' },
-    updater      : { type : String, default : 'System' },
-    status       : { type : String, default : 'active' }
-});
+const Schema = Mongoose.Schema
+
+const schema = new Schema({
+    logData: String,
+    reqId: String,
+    module: String,
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now },
+    creator: { type: String, default: 'System' },
+    updater: { type: String, default: 'System' },
+    status: { type: String, default: 'active' },
+})
 
 schema.index({
-    status : 1
-});
+    status: 1,
+})
 
 class Log {
-
-    static createLog({ logData, reqId}, callback) {
+    static createLog({ logData, reqId, module }, callback) {
         this.create({
-            logData, reqId
-        }, callback);
+            logData, reqId, module,
+        }, callback)
     }
-
 }
 
-schema.loadClass(Log);
+schema.loadClass(Log)
 
-module.exports = Mongoose.model('Log', schema);
+module.exports = Mongoose.model('Log', schema)
