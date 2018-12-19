@@ -64,11 +64,97 @@ docker stack deploy traefik -c traefik.yml
 docker stack deploy db -c db.yml
 docker stack deploy bank -c bank.yml
 ```
-This will create the PG image and pull in the necessary dependencies.
 
 
+## API
+- /api/user => this for all user related api (register, login)
+``` 
+/api/user/register 
+==> Registering a new user
+{
+	"username":"abc",
+	"password":"def"
+} 
+```
+```
+/api/user/login
+==> User login
+{
+	"username":"abc",
+	"password":"def"
+} 
 
+```
+- /api/rekening => this for all rekening related api
+```
+/api/rekening/aktivasi
+==> Rekening activation
+{
+	"code": 9999,
+	"accountNumber": 123
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImlkIjo1MiwiaWF0IjoxNTQ1MTU5MDk0fQ.qJVajCM3rE2jL-JqBMDCKL5haaa_-W0uF-GMW3ZGSZ0
+```
 
+```
+/api/rekening/update
+==> Updating rekening
+{
+	"newAccountNumber": 1234,
+	"accountNumber": 123
+	
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImlkIjo1MiwiaWF0IjoxNTQ1MTU5MDk0fQ.qJVajCM3rE2jL-JqBMDCKL5haaa_-W0uF-GMW3ZGSZ0
+```
+
+```
+/api/rekening/blokir
+==> To block rekening
+{
+	"isBlocked": true,
+	"accountNumber": 1234
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImlkIjo1MiwiaWF0IjoxNTQ1MTU5MDk0fQ.qJVajCM3rE2jL-JqBMDCKL5haaa_-W0uF-GMW3ZGSZ0
+```
+
+```
+/api/rekening/deposit
+==> To deposit
+{
+	"destinationAccount": 1305194,
+	"balance": "0.00000005"
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImlkIjo1MiwiaWF0IjoxNTQ1MTU5MDk0fQ.qJVajCM3rE2jL-JqBMDCKL5haaa_-W0uF-GMW3ZGSZ0
+```
+
+```
+/api/rekening/withdraw
+==> To withdraw
+{
+	"sourceAccount": 1234,
+	"balance": "0.00000005"
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImlkIjo1MiwiaWF0IjoxNTQ1MTU5MDk0fQ.qJVajCM3rE2jL-JqBMDCKL5haaa_-W0uF-GMW3ZGSZ0
+```
+
+```
+/api/rekening/transfer
+==> To transfer
+{
+	"sourceAccount": 1234,
+	"balance": "0.00000005"
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImlkIjo1MiwiaWF0IjoxNTQ1MTU5MDk0fQ.qJVajCM3rE2jL-JqBMDCKL5haaa_-W0uF-GMW3ZGSZ0
+```
+
+```
+/api/rekening/history
+==> To get transaction history
+{
+	"accountNumber": 1234
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImlkIjo1MiwiaWF0IjoxNTQ1MTU5MDk0fQ.qJVajCM3rE2jL-JqBMDCKL5haaa_-W0uF-GMW3ZGSZ0
+```
 
 ### Todos
 
