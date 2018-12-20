@@ -69,6 +69,9 @@ docker stack deploy bank -c bank.yml
 ```
 
 
+Execute pg.sql in the postgre DB
+
+
 ## API
 - /api/user => this for all user related api (register, login)
 ``` 
