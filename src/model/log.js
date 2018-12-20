@@ -1,6 +1,5 @@
-import Mongoose from 'mongoose'
+import { Mongoose, Schema } from 'mongoose'
 
-const Schema = Mongoose.Schema
 
 const schema = new Schema({
     logData: String,
