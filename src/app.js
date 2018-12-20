@@ -4,7 +4,7 @@
 import PgCommon from './common'
 import userRouter from './routers/user-router'
 import rekeningRouter from './routers/rekening-router'
-import { isUserAuthenticated } from './routers/protected-router'
+import isUserAuthenticated from './routers/protected-router'
 import config from './env'
 
 PgCommon.init()

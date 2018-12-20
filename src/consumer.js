@@ -1,8 +1,7 @@
 import amqp from 'amqplib/callback_api'
-import processTransaction from './model/rekening'
+import { processTransaction } from './model/rekening'
 
-amqp.connect('amqp://my-rabbit', (err, conn) => {
-    console.log("ERR " , err)
+amqp.connect('amqp://localhost', (err, conn) => {
     conn.createChannel((errCh, ch) => {
         const q = 'transaction'
         ch.assertQueue(q, { durable: false })
@@ -16,6 +15,7 @@ amqp.connect('amqp://my-rabbit', (err, conn) => {
                 processTransaction(dataObj)
                     .map(() => {
                         dataObj.type = 'withdraw'
+                        return dataObj
                     })
                     .switchMap(() => processTransaction(dataObj))
                     .subscribe()

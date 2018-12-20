@@ -44,13 +44,13 @@ router.post(['/deposit', '/transfer', '/withdraw'], (req, res) => {
     const url = req.url.split('/')[1]
     newParams.type = url
 
-    const code = validateDeposit(params)
+    const code = validateDeposit(newParams)
     if (code !== 200) {
         const data = Response.setJson('Rekening', code, reqId)
         Response.setResponse(res, null, data)
         mongoConn.Log.createLog({ logData: JSON.stringify(data), reqId, module: Response.setModule('Rekening', 609) })
     } else {
-        transaction(params)
+        transaction(newParams)
             .subscribe(
                 (data) => {
                     const msg = JSON.stringify(data.params)

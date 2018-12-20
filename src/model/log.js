@@ -1,5 +1,6 @@
-import { Mongoose, Schema } from 'mongoose'
+import Mongoose from 'mongoose'
 
+const { Schema } = Mongoose
 
 const schema = new Schema({
     logData: String,
@@ -26,4 +27,4 @@ class Log {
 
 schema.loadClass(Log)
 
-module.exports = Mongoose.model('Log', schema)
+export default Mongoose.model('Log', schema)

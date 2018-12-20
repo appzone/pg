@@ -23,13 +23,12 @@ const isUserAuthenticated = (req, res, next) => {
                 next()
             }
         }
+    } else {
+        return res.status(403).json({
+            status: 403,
+            message: 'FORBIDDEN',
+        })
     }
-    return res.status(403).json({
-        status: 403,
-        message: 'FORBIDDEN',
-    })
 }
 
-export default {
-    isUserAuthenticated,
-}
+export default isUserAuthenticated

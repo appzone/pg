@@ -10,4 +10,4 @@ const PgCommon = {
     },
 }
 
-module.exports = PgCommon
+export default PgCommon
