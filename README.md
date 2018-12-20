@@ -29,6 +29,8 @@ PG is a simple banking system.
 
 PG requires [Node.js](https://nodejs.org/) v4+ to run.
 
+Install and Run the MongoDB, Postgres, RabbitMQ
+
 Install the dependencies and devDependencies and start the server.
 
 ```sh
@@ -60,6 +62,7 @@ and also PG is having dependent to MongoDB, Postgre, Traefik, so first we need t
 cd docker/local
 docker build -f bank.yml build
 docker build -f traefik.yml build
+docker swarm init
 docker stack deploy traefik -c traefik.yml
 docker stack deploy db -c db.yml
 docker stack deploy bank -c bank.yml
