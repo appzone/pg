@@ -23,6 +23,7 @@ class PgApp {
     listen() {
         this.app.listen(this.port, () => console.log(`listening on port ${this.port}!`))
     }
+    
 }
 
 module.exports = PgApp

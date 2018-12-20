@@ -10,14 +10,8 @@ const pool = new Pool({
     idleTimeoutMillis: config.pgIdleTimeout,
 })
 
-const connectDb = () => {
-    return pool
-}
 
 const getPool = () => {
     return pool
 }
-module.exports = {
-    connectDb,
-    getPool,
-}
+export default getPool
